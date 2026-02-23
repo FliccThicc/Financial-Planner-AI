@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+
+/* Global Styles */
+:root {
+  --primary: #0077b6;
+  --secondary: #00b4d8;
+  --dark: #023e8a;
+  --light: #f9f9f9;
+  --text: #333;
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--secondary);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.navbar nav a {
+  margin-left: 20px;
+  color: white;
+  font-weight: 500;
+}
+.navbar nav a.active {
+  border-bottom: 2px solid var(--secondary);
+  padding-bottom: 3px;
+}
+
+/* Main Content */
+.content {
+  padding: 40px;
+  min-height: 70vh;
+}
+
+/* Footer */
+.footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* Animations */
+.fade-page {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+.fade-page.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Home */
+.home {
+  text-align: center;
+  padding: 60px 20px;
+}
+.home h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+.home p {
+  margin-bottom: 20px;
+  color: #555;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  background: var(--secondary);
+}
+
+/* Planner Page Layout */
+.planner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+/* Form Card */
+.form-card {
+  width: 100%;
+  max-width: 800px;   /* Bigger form box */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+  padding: 50px 40px;
+  background: var(--card-bg, #ffffff);
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  border: 1px solid var(--card-border, #e3e9f0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+}
+
+/* Make full-width rows (like button) */
+.form-card button {
+  grid-column: span 2;
+  justify-self: center;
+  width: 60%;
+}
+
+/* Labels */
+.form-card label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Inputs & Select */
+.form-card input,
+.form-card select {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--input-border, #ccd5e0);
+  font-size: 1rem;
+  background: var(--input-bg, #fafcff);
+  color: var(--text-color, #222);
+  transition: all 0.25s ease;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+  border-color: var(--primary);
+  background: var(--focus-bg, #fff);
+  box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.15);
+}
+
+/* Button */
+.form-card button {
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease;
+}
+
+.form-card button:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+/* -------- THEME SUPPORT -------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: #1f1f1f;
+    --card-border: #333;
+    --input-bg: #2b2b2b;
+    --input-border: #444;
+    --text-color: #eee;
+    --focus-bg: #2d2d2d;
+  }
+
+  .form-card {
+    box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+  }
+}

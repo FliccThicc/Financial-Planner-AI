@@ -1,0 +1,308 @@
+/* Reset */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* changed from min-height */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0077b6;
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .logo {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.navbar nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s, border-bottom 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #90e0ef;
+  border-bottom: 2px solid #90e0ef;
+  text-decoration: none;
+}
+
+/* Content */
+.content {
+  flex: 1 1 0;
+  padding: 40px;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* changed from flex-start */
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 32px 24px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h2 {
+  color: #0077b6;
+  margin-top: 0;
+}
+
+/* Footer */
+.footer {
+  background: #023e8a;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+  min-height: 40px; /* add this line */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fade transition */
+.fade-page {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.35s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1);
+  will-change: opacity, transform;
+}
+
+.fade-page.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body, html, #root {
+    background: #181a1b;
+    color: #f1f1f1;
+  }
+  .navbar {
+    background: #222e36;
+    color: #f1f1f1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .navbar nav a {
+    color: #f1f1f1;
+  }
+  .navbar nav a:hover,
+  .navbar nav a.active {
+    color: #90e0ef;
+    border-bottom: 2px solid #90e0ef;
+  }
+  .content {
+    background: #181a1b;
+  }
+  .card {
+    background: #23272a;
+    color: #f1f1f1;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  }
+  h2 {
+    color: #90e0ef;
+  }
+  .footer {
+    background: #1a2633;
+    color: #f1f1f1;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+  }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 10px;
+  }
+  .navbar .logo {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+  }
+  .navbar nav a {
+    margin-left: 0;
+    margin-right: 15px;
+    font-size: 1rem;
+  }
+  .content {
+    padding: 16px;
+  }
+  .card {
+    padding: 18px 8px;
+  }
+}
+
+/* DebtClearance Styling */
+.debt-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-card {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.input-group label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+input, select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #2a9d8f;
+  box-shadow: 0 0 5px rgba(42, 157, 143, 0.5);
+  outline: none;
+}
+
+.loan-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: grid;
+  gap: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.loan-card:hover {
+  transform: translateY(-3px);
+}
+
+.loan-duration {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-secondary, .btn-remove {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-secondary {
+  background: #2a9d8f;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background: #21867a;
+}
+
+.btn-remove {
+  background: #e63946;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.btn-remove:hover {
+  background: #c92634;
+}
+
+.summary-card {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+}
+
+.advice {
+  font-weight: 600;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.advice.success {
+  background: #d8f3dc;
+  color: #1b4332;
+}
+
+.advice.warn {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.advice.danger {
+  background: #f8d7da;
+  color: #842029;
+}
+
+.chart-section {
+  margin-top: 2rem;
+}
+
+/* Auto adapt to system theme */
+@media (prefers-color-scheme: dark) {
+  .loan-card, .form-card, .summary-card {
+    background: #1e1e1e;
+    color: #eee;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .loan-card, .form-card, .summary-card {
+    background: #fff;
+    color: #111;
+  }
+}
